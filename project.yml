@@ -1,0 +1,26 @@
+name: PhotoHider
+options:
+  bundleIdPrefix: com.generic
+settings:
+  base:
+    SWIFT_VERSION: 5.0
+    IPHONEOS_DEPLOYMENT_TARGET: 16.0
+
+targets:
+  PhotoHider:
+    type: application
+    platform: iOS
+    deploymentTarget: "16.0"
+    sources:
+      - path: PhotoManager
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.generic.photohider
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_NSPhotoLibraryUsageDescription: O Photo Manager precisa acessar sua biblioteca para ocultar fotos em massa.
+        INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription: O Photo Manager precisa de permissao para aplicar alteracoes de ocultacao nas fotos.
+        CURRENT_PROJECT_VERSION: 1
+        MARKETING_VERSION: 1.0
+        CODE_SIGN_STYLE: Automatic
+        TARGETED_DEVICE_FAMILY: "1,2"
+        ASSETCATALOG_COMPILER_APPICON_NAME: ""
