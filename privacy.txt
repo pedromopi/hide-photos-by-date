@@ -1,0 +1,40 @@
+Privacy Policy
+
+Last updated: June 2026
+
+Hide Photos by Date respects your privacy and is designed to work entirely on your device.
+
+Information We Access
+
+The app requests access to your photo library solely to allow you to view, filter, and move photos and videos to Apple's Hidden album.
+
+How Information Is Used
+
+All processing is performed locally on your device.
+
+- Filter media by creation date.
+- Display the number of matching items.
+- Move selected items to Apple's Hidden album.
+
+Data Collection
+
+Hide Photos by Date does not collect, store, transmit, or sell personal information.
+
+No photos, videos, or photo library metadata are uploaded to external servers.
+
+Third-Party Services
+
+The app does not share your photos, videos, or personal information with third parties.
+
+Children's Privacy
+
+The app does not knowingly collect personal information from children.
+
+Changes to This Privacy Policy
+
+This Privacy Policy may be updated from time to time. Any changes will be reflected on this page with an updated revision date.
+
+Contact
+
+Pedro Borges
+pedromopi@hotmail.com
