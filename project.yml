@@ -17,8 +17,9 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.generic.photohider
         GENERATE_INFOPLIST_FILE: YES
-        INFOPLIST_KEY_NSPhotoLibraryUsageDescription: O Photo Manager precisa acessar sua biblioteca para ocultar fotos em massa.
-        INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription: O Photo Manager precisa de permissao para aplicar alteracoes de ocultacao nas fotos.
+        INFOPLIST_KEY_CFBundleDisplayName: Hide Photos
+        INFOPLIST_KEY_NSPhotoLibraryUsageDescription: Photo Manager uses photo library access to count media and move selected items to Hidden.
+        INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription: Photo Manager uses this permission to apply hiding changes to selected items.
         CURRENT_PROJECT_VERSION: 1
         MARKETING_VERSION: 1.0
         CODE_SIGN_STYLE: Automatic

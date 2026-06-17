@@ -9,6 +9,7 @@ AGENTS.md
 .LSOverride
 
 # Xcode user state
+*.xcodeproj/
 *.xcuserstate
 *.xcscmblueprint
 xcuserdata/

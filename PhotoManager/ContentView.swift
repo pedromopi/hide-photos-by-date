@@ -24,6 +24,7 @@ struct ContentView: View {
                             }
                             Spacer(minLength: 28)
                             hideButton
+                            privacyPolicyButton
                         }
                         .padding()
                     } else {
@@ -31,6 +32,7 @@ struct ContentView: View {
                             titleHeader
                             accessRequiredView
                             Spacer(minLength: 0)
+                            privacyPolicyButton
                         }
                         .padding()
                     }
@@ -117,14 +119,14 @@ struct ContentView: View {
 
     private var accessRequiredView: some View {
         VStack(alignment: .leading, spacing: 12) {
-            Text("Permission Required")
+            Text("Photo Library Access")
                 .font(.title3.bold())
                 .foregroundStyle(.primary)
-            Text("To count and hide media, allow access to your library.")
+            Text("This app uses photo library access to count media and move selected items to Hidden.")
                 .font(.subheadline)
                 .foregroundStyle(.secondary)
 
-            Button("Request Media Access") {
+            Button("Continue") {
                 viewModel.requestPhotoAccess()
             }
             .buttonStyle(.bordered)
@@ -194,6 +196,18 @@ struct ContentView: View {
         .opacity(viewModel.canHidePhotos ? 1 : 0.55)
     }
 
+    private var privacyPolicyButton: some View {
+        Button("Privacy Policy") {
+            guard let privacyURL = URL(string: "http://pedromopi.github.io/apps/hide-photos-by-date/privacy.html") else { return }
+            openURL(privacyURL)
+        }
+        .font(.footnote.weight(.medium))
+        .foregroundStyle(.secondary)
+        .buttonStyle(.plain)
+        .padding(.top, 4)
+        .accessibilityHint("Opens the privacy policy in Safari.")
+    }
+
 }
 
 @MainActor
@@ -232,7 +246,7 @@ final class PhotosHideManager: ObservableObject {
     @Published var matchingPhotosCount = 0
     @Published var isProcessing = false
     @Published var processedCount = 0
-    @Published var statusMessage = "Grant access to manage media."
+    @Published var statusMessage = "Photo library access lets the app count and hide selected media."
     @Published var selectedScope: HideScope = .allVisible {
         didSet {
             refreshMatchingPhotosCount()
@@ -327,11 +341,11 @@ final class PhotosHideManager: ObservableObject {
     private func updateStatusForAuthorization() {
         switch authorizationStatus {
         case .authorized, .limited:
-            statusMessage = "Permission granted. Select a filter and run hide."
+            statusMessage = "Photo library access is enabled. Select a filter and run hide."
         case .notDetermined:
-            statusMessage = "Tap 'Request Media Access' to continue."
+            statusMessage = "Tap Continue to proceed."
         case .denied:
-            statusMessage = "Access denied. Open iOS Settings to allow it."
+            statusMessage = "Photo library access is off. You can update it in iOS Settings."
         case .restricted:
             statusMessage = "Access is restricted by the system."
         @unknown default:
@@ -437,7 +451,7 @@ final class PhotosHideManager: ObservableObject {
                     continuation.resume(throwing: NSError(
                         domain: "PhotoManager",
                         code: 1,
-                        userInfo: [NSLocalizedDescriptionKey: "A operacao foi cancelada."]
+                        userInfo: [NSLocalizedDescriptionKey: "The operation was cancelled."]
                     ))
                 }
             })

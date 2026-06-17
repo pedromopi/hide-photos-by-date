@@ -1,14 +1,14 @@
 # PhotoHider
 
-App iOS (SwiftUI, iOS 16+) para ocultar fotos em massa usando a API oficial do Photos.
+An iOS app (SwiftUI, iOS 16+) for hiding photos in bulk using Apple's official Photos API.
 
-## Funcionalidade
+## Features
 
-1. Solicita permissao de acesso `readWrite` a biblioteca de fotos.
-2. Conta fotos visiveis (`hidden == NO`).
-3. Marca todas as fotos visiveis como ocultas (`isHidden = true`) em lotes.
+1. Requests `readWrite` access to the photo library.
+2. Counts visible photos (`hidden == NO`).
+3. Marks visible photos as hidden (`isHidden = true`) in batches.
 
 ## Build
 
-1. Rode `xcodegen generate` dentro da pasta.
-2. Abra `PhotoManager.xcodeproj` no Xcode.
+1. Run `xcodegen generate` inside the folder.
+2. Open `PhotoManager.xcodeproj` in Xcode.
